@@ -11,6 +11,13 @@ defined('MOODLE_INTERNAL') || die;
 
 require_once("$CFG->libdir/externallib.php");
 
+/**
+ * Label with group external API
+ *
+ * @package    mod_labelwithgroup
+ * @copyright  2021 4Linux  {@link https://4linux.com.br/}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class mod_labelwithgroup_external extends external_api {
 
     /**

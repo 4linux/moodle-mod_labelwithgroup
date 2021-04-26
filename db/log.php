@@ -3,7 +3,6 @@
  * Definition of log events
  *
  * @package    mod_labelwithgroup
- * @category   Log
  * @copyright  2021 4Linux  {@link https://4linux.com.br/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

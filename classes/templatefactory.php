@@ -1,4 +1,11 @@
 <?php
+/**
+ * Template Factory
+ *
+ * @package    mod_labelwithgroup
+ * @copyright  2021 4Linux  {@link https://4linux.com.br/}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 namespace mod_labelwithgroup\classes;
 
 defined('MOODLE_INTERNAL') || die;
@@ -21,13 +28,16 @@ use mod_labelwithgroup\classes\collapseslide;
  * @copyright  2021 4Linux  {@link https://4linux.com.br/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class templatefactory
 {
 
+    /** @var string $templatetypenone */
     public static $templatetypenone = 'none';
+    /** @var string $templatetypecollapse */
     public static $templatetypecollapse = 'collapse';
+    /** @var string $templatetypeslide */
     public static $templatetypeslide = 'slide';
+    /** @var string $templatetypecollapseslide */
     public static $templatetypecollapseslide = 'collapse-slide';
 
     /**

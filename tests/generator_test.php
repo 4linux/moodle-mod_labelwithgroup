@@ -3,13 +3,19 @@
  * PHPUnit label generator tests
  *
  * @package    mod_labelwithgroup
- * @category   phpunit
  * @copyright  2021 4Linux  {@link https://4linux.com.br/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * PHPUnit label generator tests
+ *
+ * @package    mod_labelwithgroup
+ * @copyright  2021 4Linux  {@link https://4linux.com.br/}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class mod_labelwithgroup_generator_testcase extends advanced_testcase {
     public function test_generator() {
         global $DB;

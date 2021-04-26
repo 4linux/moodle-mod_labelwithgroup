@@ -30,10 +30,21 @@ class cognitive_depth extends activity_base {
         return new \lang_string('indicator:cognitivedepth', 'mod_labelwithgroup');
     }
 
+    /**
+     * Get indicator type
+     *
+     * @return mixed
+     */
     public function get_indicator_type() {
         return self::INDICATOR_COGNITIVE;
     }
 
+    /**
+     * Get cognitive depth level
+     *
+     * @param \cm_info $cm
+     * @return mixed
+     */
     public function get_cognitive_depth_level(\cm_info $cm) {
         return self::COGNITIVE_LEVEL_1;
     }

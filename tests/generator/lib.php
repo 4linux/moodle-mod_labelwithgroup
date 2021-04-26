@@ -10,8 +10,23 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * mod_labelwithgroup data generator
+ *
+ * @package    mod_labelwithgroup
+ * @category   test
+ * @copyright  2021 4Linux  {@link https://4linux.com.br/}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class mod_labelwithgroup_generator extends testing_module_generator {
 
+    /**
+     * Create a label with group instance
+     *
+     * @param null $record
+     * @param array|null $options
+     * @return mixed
+     */
     public function create_instance($record = null, array $options = null) {
         $record = (array)$record;
         $record['showdescription'] = 1;

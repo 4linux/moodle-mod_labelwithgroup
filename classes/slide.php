@@ -1,4 +1,11 @@
 <?php
+/**
+ * Slide template
+ *
+ * @package    mod_labelwithgroup
+ * @copyright  2021 4Linux  {@link https://4linux.com.br/}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 namespace mod_labelwithgroup\classes;
 
 use mod_labelwithgroup\interfaces\labeltemplateinterface;
@@ -10,10 +17,18 @@ use mod_labelwithgroup\interfaces\labeltemplateinterface;
  * @copyright  2021 4Linux  {@link https://4linux.com.br/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class slide implements labeltemplateinterface
 {
 
+    /**
+     * Process content to add a template
+     *
+     * @param string[] $content Content to be displayed on template
+     * @param string $title Title to indentify the content
+     * @param string $group Allowed group id
+     * @param string $courseid Course id
+     * @return string
+     */
     public function process_content($content, $title, $group, $courseid) {
 
         $identifier = time() . uniqid();
@@ -72,6 +87,12 @@ EOT;
         return $this->add_script($newcontent, $identifier);
     }
 
+    /**
+     * Build content html
+     *
+     * @param string $content Html Content
+     * @return string
+     */
     public function build_content($content) {
 
         $newcontent = "";
@@ -112,6 +133,13 @@ EOF;
         return join("", $options);
     }
 
+    /**
+     * Add some script after HTML content
+     *
+     * @param string $content Html Content
+     * @param string $identifier Element identifier
+     * @return string
+     */
     public function add_script($content, $identifier) {
 
         return $content . <<<EOF

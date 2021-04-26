@@ -1,4 +1,12 @@
 <?php
+/**
+ * Template commom interface
+ *
+ * @package    mod_labelwithgroup
+ * @copyright  2021 4Linux  {@link https://4linux.com.br/}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 namespace mod_labelwithgroup\interfaces;
 
 /**
@@ -8,7 +16,6 @@ namespace mod_labelwithgroup\interfaces;
  * @copyright  2021 4Linux  {@link https://4linux.com.br/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 interface labeltemplateinterface
 {
 
@@ -32,6 +39,8 @@ interface labeltemplateinterface
     public function build_content($content);
 
     /**
+     * Add some script after HTML content
+     *
      * @param string $content Html Content
      * @param string $identifier Element identifier
      * @return string

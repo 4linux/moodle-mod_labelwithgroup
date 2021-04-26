@@ -13,6 +13,8 @@ defined('MOODLE_INTERNAL') || die;
 define("LABELWITHGROUP_MAX_NAME_LENGTH", 50);
 
 /**
+ * Return label name
+ *
  * @uses LABELWITHGROUP_MAX_NAME_LENGTH
  * @param object $labelwithgroup
  * @return string
@@ -35,7 +37,6 @@ function get_labelwithgroup_name($labelwithgroup) {
  * will create a new instance and return the id number
  * of the new instance.
  *
- * @global object
  * @param object $labelwithgroup
  * @return bool|int
  */
@@ -74,7 +75,6 @@ function labelwithgroup_add_instance($labelwithgroup) {
  * (defined by the form in mod_form.php) this function
  * will update an existing instance with new data.
  *
- * @global object
  * @param object $labelwithgroup
  * @return bool
  */
@@ -107,7 +107,6 @@ function labelwithgroup_update_instance($labelwithgroup) {
  * this function will permanently delete the instance
  * and any data that depends on it.
  *
- * @global object
  * @param int $id
  * @return bool
  */
@@ -141,7 +140,6 @@ function labelwithgroup_delete_instance($id) {
  * this activity in a course listing.
  * See get_array_of_activities() in course/lib.php
  *
- * @global object
  * @param object $coursemodule
  * @return cached_cm_info|null
  */
@@ -227,6 +225,8 @@ function labelwithgroup_reset_userdata($data) {
 }
 
 /**
+ * Return supported features
+ *
  * @uses FEATURE_IDNUMBER
  * @uses FEATURE_GROUPS
  * @uses FEATURE_GROUPINGS

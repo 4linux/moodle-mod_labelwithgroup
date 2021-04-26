@@ -9,6 +9,12 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+/**
+ * Database upgrade
+ *
+ * @param $oldversion
+ * @return bool
+ */
 function xmldb_labelwithgroup_upgrade($oldversion) {
     global $CFG;
 

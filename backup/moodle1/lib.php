@@ -1,7 +1,6 @@
 <?php
 /**
  * Provides support for the conversion of moodle1 backup to the moodle2 format
- * Based off of a template @ http://docs.moodle.org/dev/Backup_1.9_conversion_for_developers
  *
  * @package    mod_labelwithgroup
  * @copyright  2021 4Linux  {@link https://4linux.com.br/}
@@ -17,7 +16,7 @@ class moodle1_mod_labelwithgroup_handler extends moodle1_mod_handler {
     /**
      * Declare the paths in moodle.xml we are able to convert
      *
-     * The method returns list of {@link convert_path} instances.
+     * The method returns list of convert_path instances.
      * For each path returned, the corresponding conversion method must be
      * defined.
      *
@@ -25,7 +24,7 @@ class moodle1_mod_labelwithgroup_handler extends moodle1_mod_handler {
      * actually exist in the file. The last element with the module name was
      * appended by the moodle1_converter class.
      *
-     * @return array of {@link convert_path} instances
+     * @return array of convert_path instances
      */
     public function get_paths() {
         return array(
@@ -46,6 +45,9 @@ class moodle1_mod_labelwithgroup_handler extends moodle1_mod_handler {
     /**
      * This is executed every time we have one /MOODLE_BACKUP/COURSE/MODULES/MOD/LABELWITHGROUP
      * data available
+     *
+     * @param $data
+     *
      */
     public function process_labelwithgroup($data) {
         // Get the course module id and context id

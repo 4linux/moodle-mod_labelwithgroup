@@ -14,8 +14,18 @@ require_once($CFG->dirroot . '/mod/labelwithgroup/classes/templatefactory.php');
 
 use \mod_labelwithgroup\classes\templatefactory;
 
+/**
+ * Add labelwithgroup form
+ *
+ * @package    mod_labelwithgroup
+ * @copyright  2021 4Linux  {@link https://4linux.com.br/}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class mod_labelwithgroup_mod_form extends moodleform_mod {
 
+    /**
+     * Build the form
+     */
     public function definition() {
         global $PAGE, $CFG;
 
@@ -88,6 +98,11 @@ class mod_labelwithgroup_mod_form extends moodleform_mod {
         $this->add_action_buttons(true, false, null);
     }
 
+    /**
+     * Process data before the build
+     *
+     * @param $defaultvalues
+     */
     public function data_preprocessing(&$defaultvalues) {
         global $DB;
 
@@ -108,6 +123,11 @@ class mod_labelwithgroup_mod_form extends moodleform_mod {
 
     }
 
+    /**
+     * Process data after submit
+     *
+     * @param $data
+     */
     function data_postprocessing($data) {
         parent::data_postprocessing($data);
 

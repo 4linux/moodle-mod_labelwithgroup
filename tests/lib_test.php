@@ -10,6 +10,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Unit tests for the activity labelwithgroup's lib.
+ *
+ * @package    mod_labelwithgroup
+ * @category   test
+ * @copyright  2021 4Linux  {@link https://4linux.com.br/}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class mod_labelwithgroup_lib_testcase extends advanced_testcase {
 
     /**

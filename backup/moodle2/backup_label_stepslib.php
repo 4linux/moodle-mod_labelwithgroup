@@ -1,11 +1,18 @@
 <?php
 /**
+ * Activity structure step backup
+ *
  * @package    mod_labelwithgroup
  * @copyright  2021 4Linux  {@link https://4linux.com.br/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class backup_labelwithgroup_activity_structure_step extends backup_activity_structure_step {
 
+    /**
+     * Prepare activity structure
+     *
+     * @return mixed
+     */
     protected function define_structure() {
 
         $userinfo = $this->get_setting_value('userinfo');

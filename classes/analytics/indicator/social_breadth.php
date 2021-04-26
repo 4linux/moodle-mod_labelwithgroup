@@ -30,10 +30,21 @@ class social_breadth extends activity_base {
         return new \lang_string('indicator:socialbreadth', 'mod_labelwithgroup');
     }
 
+    /**
+     * Get indicator type
+     *
+     * @return mixed
+     */
     public function get_indicator_type() {
         return self::INDICATOR_SOCIAL;
     }
 
+    /**
+     * Get cognitive depth level
+     *
+     * @param \cm_info $cm
+     * @return mixed
+     */
     public function get_social_breadth_level(\cm_info $cm) {
         return self::SOCIAL_LEVEL_1;
     }
