@@ -15,3 +15,5 @@ $plugin->version   = 2021031700;       // The current module version (Date: YYYY
 $plugin->requires  = 2020060900;    // Requires this Moodle version
 $plugin->component = 'mod_labelwithgroup'; // Full name of the plugin (used for diagnostics)
 $plugin->cron      = 0;
+$plugin->maturity = MATURITY_BETA;
+$plugin->release = 'v1.0';
