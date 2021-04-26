@@ -1,0 +1,98 @@
+/* General */
+.section .activity.labelwithgroup .contentwithoutlink, .section .activity.labelwithgroup .activityinstance {
+    padding-right: 32px;
+    display: block;
+    height: inherit;
+}
+
+/* collapse */
+.card.mod-labelwithgroup-card {
+    border: none;
+    background: transparent;
+}
+
+.card-header.mod-labelwithgroup-card-header {
+    background-color: #fafafa;
+    width: 100%;
+    box-shadow: 2px 0px 4px rgba(0, 0, 0, .25);
+    margin-bottom: .5rem;
+    border: 1px solid rgba(0,0,0,.25);
+    padding: .5rem 1.25rem;
+    transition: all 200ms linear;
+}
+
+.card-header.mod-labelwithgroup-card-header:hover {
+    background: #FFF;
+}
+
+.mod-labelwithgroup-arrow-icon-button {
+    cursor: pointer;
+}
+
+.btn.mod-labelwithgroup-btn {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #404040;
+    display: flex;
+    text-align: left;
+    align-items: center;
+}
+
+.btn.mod-labelwithgroup-btn span.mod-labelwithgroup-arrow-icon-button {
+    opacity: .8;
+    transform: rotate(0deg);
+    transition: all 0.2s linear;
+}
+
+.btn.mod-labelwithgroup-btn[aria-expanded="true"] span.mod-labelwithgroup-arrow-icon-button {
+    transform: rotate(180deg);
+}
+
+.btn.mod-labelwithgroup-btn span.mod-labelwithgroup-title {
+    padding-left: .5rem;
+    flex: 2;
+}
+
+.btn.mod-labelwithgroup-btn:hover {
+    color: #404040;
+    text-decoration: none;
+}
+
+.btn.mod-labelwithgroup-btn:focus {
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.card-body.mod-labelwithgroup-card-body {
+    border-color: rgba(0,0,0,.25);
+}
+/* slide */
+.carousel-indicators.mod-labelwithgroup-carousel-indicators li {
+    background-color: rgba(0,0,0,.25);
+}
+.carousel-inner.mod-labelwithgroup-carousel-inner {
+    padding: 1.25rem 3rem;
+}
+
+.carousel-control-next.mod-labelwithgroup-carousel-control-next,
+.carousel-control-prev.mod-labelwithgroup-carousel-control-prev {
+    max-width: 2rem;
+    outline: none;
+    box-shadow: none;
+}
+
+.carousel-control-next.mod-labelwithgroup-carousel-control-next:focus,
+.carousel-control-prev.mod-labelwithgroup-carousel-control-prev:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.carousel-control-prev-icon.mod-labelwithgroup-carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none' opacity='.87'/%3E%3Cpath d='M17.51 3.87L15.73 2.1 5.84 12l9.9 9.9 1.77-1.77L9.38 12l8.13-8.13z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon.mod-labelwithgroup-carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24px' viewBox='0 0 24 24' width='24px' fill='%23000000'%3E%3Cg%3E%3Cpath d='M0,0h24v24H0V0z' fill='none'/%3E%3C/g%3E%3Cg%3E%3Cpolygon points='6.23,20.23 8,22 18,12 8,2 6.23,3.77 14.46,12'/%3E%3C/g%3E%3C/svg%3E");
+}
+
