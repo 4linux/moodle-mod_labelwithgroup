@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Library of functions and constants for module labelwithgroup
  *
@@ -19,14 +18,13 @@ define("LABELWITHGROUP_MAX_NAME_LENGTH", 50);
  * @return string
  */
 function get_labelwithgroup_name($labelwithgroup) {
-    $name = strip_tags(format_string($labelwithgroup->intro,true));
+    $name = strip_tags(format_string($labelwithgroup->intro, true));
     if (core_text::strlen($name) > LABELWITHGROUP_MAX_NAME_LENGTH) {
         $name = core_text::substr($name, 0, LABELWITHGROUP_MAX_NAME_LENGTH)."...";
     }
 
     if (empty($name)) {
-        // arbitrary name
-        $name = get_string('modulename','labelwithgroup');
+        $name = get_string('modulename', 'labelwithgroup');
     }
 
     return $name;
@@ -49,7 +47,7 @@ function labelwithgroup_add_instance($labelwithgroup) {
 
     $id = $DB->insert_record("labelwithgroup", $labelwithgroup);
 
-    foreach($labelwithgroup->content as $content) {
+    foreach ($labelwithgroup->content as $content) {
 
         $stdclass = new stdClass();
         $stdclass->content = $content;
@@ -58,8 +56,15 @@ function labelwithgroup_add_instance($labelwithgroup) {
         $DB->insert_record("labelwithgroup_content", $stdclass);
     }
 
-    $completiontimeexpected = !empty($labelwithgroup->completionexpected) ? $labelwithgroup->completionexpected : null;
-    \core_completion\api::update_completion_date_event($labelwithgroup->coursemodule, 'labelwithgroup', $id, $completiontimeexpected);
+    $completiontimeexpected = !empty($labelwithgroup->completionexpected) ?
+        $labelwithgroup->completionexpected :
+        null;
+    \core_completion\api::update_completion_date_event(
+        $labelwithgroup->coursemodule,
+        'labelwithgroup',
+        $id,
+        $completiontimeexpected
+    );
 
     return $id;
 }
@@ -80,8 +85,15 @@ function labelwithgroup_update_instance($labelwithgroup) {
     $labelwithgroup->timemodified = time();
     $labelwithgroup->id = $labelwithgroup->instance;
 
-    $completiontimeexpected = !empty($labelwithgroup->completionexpected) ? $labelwithgroup->completionexpected : null;
-    \core_completion\api::update_completion_date_event($labelwithgroup->coursemodule, 'labelwithgroup', $labelwithgroup->id, $completiontimeexpected);
+    $completiontimeexpected = !empty($labelwithgroup->completionexpected) ?
+        $labelwithgroup->completionexpected :
+        null;
+    \core_completion\api::update_completion_date_event(
+        $labelwithgroup->coursemodule,
+        'labelwithgroup',
+        $labelwithgroup->id,
+        $completiontimeexpected
+    );
 
     $id = $DB->update_record("labelwithgroup", $labelwithgroup);
 
@@ -102,16 +114,21 @@ function labelwithgroup_update_instance($labelwithgroup) {
 function labelwithgroup_delete_instance($id) {
     global $DB;
 
-    if (! $labelwithgroup = $DB->get_record("labelwithgroup", array("id"=>$id))) {
+    if (! $labelwithgroup = $DB->get_record("labelwithgroup", array("id" => $id))) {
         return false;
     }
 
     $result = true;
 
     $cm = get_coursemodule_from_instance('labelwithgroup', $id);
-    \core_completion\api::update_completion_date_event($cm->id, 'labelwithgroup', $labelwithgroup->id, null);
+    \core_completion\api::update_completion_date_event(
+        $cm->id,
+        'labelwithgroup',
+        $labelwithgroup->id,
+        null
+    );
 
-    if (! $DB->delete_records("labelwithgroup", array("id"=>$labelwithgroup->id))) {
+    if (! $DB->delete_records("labelwithgroup", array("id" => $labelwithgroup->id))) {
         $result = false;
     }
 
@@ -131,14 +148,16 @@ function labelwithgroup_delete_instance($id) {
 function labelwithgroup_get_coursemodule_info($coursemodule) {
     global $DB;
 
-    if ($labelwithgroup = $DB->get_record('labelwithgroup', array('id'=>$coursemodule->instance), 'id, name, intro, introformat')) {
+    if ($labelwithgroup = $DB->get_record(
+        'labelwithgroup',
+        array('id' => $coursemodule->instance),
+        'id, name, intro, introformat'
+    )) {
         if (empty($labelwithgroup->name)) {
-            // labelwithgroup name missing, fix it
             $labelwithgroup->name = "labelwithgroup{$labelwithgroup->id}";
-            $DB->set_field('labelwithgroup', 'name', $labelwithgroup->name, array('id'=>$labelwithgroup->id));
+            $DB->set_field('labelwithgroup', 'name', $labelwithgroup->name, array('id' => $labelwithgroup->id));
         }
         $info = new cached_cm_info();
-        // no filtering hre because this info is cached and filtered later
         $info->content = format_module_intro('labelwithgroup', $labelwithgroup, $coursemodule->id, false);
         $info->name  = $labelwithgroup->name;
         return $info;
@@ -175,7 +194,7 @@ function labelwithgroup_update_labelcontent($newcontents, $labelwithgroupid) {
 
     }, $oldcontents, $newcontents);
 
-    foreach($toupdate as $stdclass) {
+    foreach ($toupdate as $stdclass) {
 
         if (empty($stdclass->id)) {
             $DB->insert_record("labelwithgroup_content", $stdclass);
@@ -187,7 +206,7 @@ function labelwithgroup_update_labelcontent($newcontents, $labelwithgroupid) {
             continue;
         }
 
-        $DB->delete_records("labelwithgroup_content", array("id"=>$stdclass->id));
+        $DB->delete_records("labelwithgroup_content", array("id" => $stdclass->id));
 
     }
 
@@ -220,18 +239,28 @@ function labelwithgroup_reset_userdata($data) {
  */
 function labelwithgroup_supports($feature) {
     switch($feature) {
-        case FEATURE_IDNUMBER:                return true;
-        case FEATURE_GROUPS:                  return false;
-        case FEATURE_GROUPINGS:               return false;
-        case FEATURE_MOD_INTRO:               return true;
-        case FEATURE_COMPLETION_TRACKS_VIEWS: return false;
-        case FEATURE_GRADE_HAS_GRADE:         return false;
-        case FEATURE_GRADE_OUTCOMES:          return false;
-        case FEATURE_MOD_ARCHETYPE:           return MOD_ARCHETYPE_RESOURCE;
-        case FEATURE_BACKUP_MOODLE2:          return true;
-        case FEATURE_NO_VIEW_LINK:            return true;
-
-        default: return null;
+        case FEATURE_IDNUMBER:
+            return true;
+        case FEATURE_GROUPS:
+            return false;
+        case FEATURE_GROUPINGS:
+            return false;
+        case FEATURE_MOD_INTRO:
+            return true;
+        case FEATURE_COMPLETION_TRACKS_VIEWS:
+            return false;
+        case FEATURE_GRADE_HAS_GRADE:
+            return false;
+        case FEATURE_GRADE_OUTCOMES:
+            return false;
+        case FEATURE_MOD_ARCHETYPE:
+            return MOD_ARCHETYPE_RESOURCE;
+        case FEATURE_BACKUP_MOODLE2:
+            return true;
+        case FEATURE_NO_VIEW_LINK:
+            return true;
+        default:
+            return null;
     }
 }
 
@@ -320,7 +349,6 @@ function labelwithgroup_generate_resized_image(stored_file $file, $maxwidth, $ma
     $attrib = array('alt' => $file->get_filename(), 'src' => $fullurl);
 
     if ($imginfo = $file->get_imageinfo()) {
-        // Work out the new width / height, bounded by maxwidth / maxheight
         $width = $imginfo['width'];
         $height = $imginfo['height'];
         if (!empty($maxwidth) && $width > $maxwidth) {
@@ -335,7 +363,6 @@ function labelwithgroup_generate_resized_image(stored_file $file, $maxwidth, $ma
         $attrib['width'] = $width;
         $attrib['height'] = $height;
 
-        // If the size has changed and the image is of a suitable mime type, generate a smaller version
         if ($width != $imginfo['width']) {
             $mimetype = $file->get_mimetype();
             if ($mimetype === 'image/gif' or $mimetype === 'image/jpeg' or $mimetype === 'image/png') {
@@ -354,16 +381,17 @@ function labelwithgroup_generate_resized_image(stored_file $file, $maxwidth, $ma
                     );
                     $smallfile = $fs->create_file_from_string($record, $data);
 
-                    // Replace the image 'src' with the resized file and link to the original
-                    $attrib['src'] = moodle_url::make_draftfile_url($smallfile->get_itemid(), $smallfile->get_filepath(),
-                                                                    $smallfile->get_filename());
+                    $attrib['src'] = moodle_url::make_draftfile_url(
+                        $smallfile->get_itemid(),
+                        $smallfile->get_filepath(),
+                        $smallfile->get_filename()
+                    );
                     $link = $fullurl;
                 }
             }
         }
 
     } else {
-        // Assume this is an image type that get_imageinfo cannot handle (e.g. SVG)
         $attrib['width'] = $maxwidth;
     }
 

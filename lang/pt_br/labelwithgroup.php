@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Strings for component 'labelwithgroup', language 'pt_br', branch 'MOODLE_20_STABLE'
  *

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * mod_labelwithgroup data generator
  *

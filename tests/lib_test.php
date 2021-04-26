@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Unit tests for the activity labelwithgroup's lib.
  *
@@ -218,12 +217,14 @@ class mod_labelwithgroup_lib_testcase extends advanced_testcase {
         $this->assertInstanceOf('mod_labelwithgroup_generator', $generator);
         $this->assertEquals('labelwithgroup', $generator->get_modulename());
 
-        $labelwithgroup = $generator->create_instance(array('course'=>$course->id));
+        $labelwithgroup = $generator->create_instance(array('course' => $course->id));
 
         $contents = $DB->get_records('labelwithgroup_content', [ 'labelwithgroup_id' => $labelwithgroup->id ]);
         $this->assertEquals(3, count($contents));
 
-        $templateentity = \mod_labelwithgroup\classes\templatefactory::get_template_by_type(\mod_labelwithgroup\classes\templatefactory::$TEMPLATE_TYPE_NONE);
+        $templateentity = \mod_labelwithgroup\classes\templatefactory::get_template_by_type(
+            \mod_labelwithgroup\classes\templatefactory::$templatetypenone
+        );
 
         $contentsarr = [];
 
@@ -263,7 +264,7 @@ class mod_labelwithgroup_lib_testcase extends advanced_testcase {
         $contents = $DB->get_records('labelwithgroup_content', [ 'labelwithgroup_id' => $labelwithgroup->id ]);
         $this->assertEquals(3, count($contents));
 
-        $templateentity = \mod_labelwithgroup\classes\templatefactory::get_template_by_type(\mod_labelwithgroup\classes\templatefactory::$TEMPLATE_TYPE_COLLAPSE);
+        $templateentity = \mod_labelwithgroup\classes\templatefactory::get_template_by_type(\mod_labelwithgroup\classes\templatefactory::$templatetypecollapse);
 
         $contentsarr = [];
 
@@ -303,12 +304,14 @@ class mod_labelwithgroup_lib_testcase extends advanced_testcase {
         $this->assertInstanceOf('mod_labelwithgroup_generator', $generator);
         $this->assertEquals('labelwithgroup', $generator->get_modulename());
 
-        $labelwithgroup = $generator->create_instance(array('course'=>$course->id));
+        $labelwithgroup = $generator->create_instance(array('course' => $course->id));
 
         $contents = $DB->get_records('labelwithgroup_content', [ 'labelwithgroup_id' => $labelwithgroup->id ]);
         $this->assertEquals(3, count($contents));
 
-        $templateentity = \mod_labelwithgroup\classes\templatefactory::get_template_by_type(\mod_labelwithgroup\classes\templatefactory::$TEMPLATE_TYPE_SLIDE);
+        $templateentity = \mod_labelwithgroup\classes\templatefactory::get_template_by_type(
+            \mod_labelwithgroup\classes\templatefactory::$templatetypeslide
+        );
 
         $contentsarr = [];
 
@@ -348,12 +351,14 @@ class mod_labelwithgroup_lib_testcase extends advanced_testcase {
         $this->assertInstanceOf('mod_labelwithgroup_generator', $generator);
         $this->assertEquals('labelwithgroup', $generator->get_modulename());
 
-        $labelwithgroup = $generator->create_instance(array('course'=>$course->id));
+        $labelwithgroup = $generator->create_instance(array('course' => $course->id));
 
         $contents = $DB->get_records('labelwithgroup_content', [ 'labelwithgroup_id' => $labelwithgroup->id ]);
         $this->assertEquals(3, count($contents));
 
-        $templateentity = \mod_labelwithgroup\classes\templatefactory::get_template_by_type(\mod_labelwithgroup\classes\templatefactory::$TEMPLATE_TYPE_COLLAPSE_SLIDE);
+        $templateentity = \mod_labelwithgroup\classes\templatefactory::get_template_by_type(
+            \mod_labelwithgroup\classes\templatefactory::$templatetypecollapseslide
+        );
 
         $contentsarr = [];
 

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Search area for mod_labelwithgroup activities.
  *

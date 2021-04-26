@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Label with group module admin settings and defaults
  *

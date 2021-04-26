@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Label with group external API
  *
@@ -68,8 +67,22 @@ class mod_labelwithgroup_external extends external_api {
                 $labelwithgroup->name = external_format_string($labelwithgroup->name, $context->id);
                 $options = array('noclean' => true);
                 list($labelwithgroup->intro, $labelwithgroup->introformat) =
-                    external_format_text($labelwithgroup->intro, $labelwithgroup->introformat, $context->id, 'mod_labelwithgroup', 'intro', null, $options);
-                $labelwithgroup->introfiles = external_util::get_area_files($context->id, 'mod_labelwithgroup', 'intro', false, false);
+                    external_format_text(
+                        $labelwithgroup->intro,
+                        $labelwithgroup->introformat,
+                        $context->id,
+                        'mod_labelwithgroup',
+                        'intro',
+                        null,
+                        $options
+                    );
+                $labelwithgroup->introfiles = external_util::get_area_files(
+                    $context->id,
+                    'mod_labelwithgroup',
+                    'intro',
+                    false,
+                    false
+                );
 
                 $returnedlabels[] = $labelwithgroup;
             }

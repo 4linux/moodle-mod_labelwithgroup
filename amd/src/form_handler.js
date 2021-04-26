@@ -1,11 +1,11 @@
     define(['jquery'], function($) {
         return {
-            init: function (language = 'en') {
-                slideCount = 0;
-                maxEditors = 25;
-                minEditors = 1;
+            init: function(language = 'en') {
+                let slideCount = 0;
+                let maxEditors = 25;
+                let minEditors = 1;
 
-                strings = {
+                let strings = {
                     pt_br: {
                       content: 'Conteúdo',
                       slide: 'Slide {n}'
@@ -14,7 +14,7 @@
                         content: 'Content',
                         slide: 'Slide {n}'
                     }
-                }
+                };
 
                 hideItem('fitem_id_introeditor');
                 initView();
@@ -129,5 +129,5 @@
                    showEditors(slideCount);
                 });
             }
-        }
+        };
     });

@@ -1,5 +1,4 @@
 <?php
-
 namespace mod_labelwithgroup\classes;
 
 use mod_labelwithgroup\interfaces\labeltemplateinterface;
@@ -15,8 +14,7 @@ use mod_labelwithgroup\interfaces\labeltemplateinterface;
 class none implements labeltemplateinterface
 {
 
-    public function process_content($content, $title, $group, $courseid)
-    {
+    public function process_content($content, $title, $group, $courseid) {
 
         $identifier = time() . uniqid();
 
@@ -46,16 +44,25 @@ EOT;
 
         return $content . <<<EOF
             <script type="module">
-            
             require(['jquery', 'core/ajax'], function($, ajax) {
-              if (parseInt(document.querySelector('#mod_labelwithgroup_element_{$identifier}').getAttribute('data-group-id')) !== -1) {
+              if (parseInt(
+                  document.querySelector(
+                      '#mod_labelwithgroup_element_{$identifier}'
+                      ).getAttribute('data-group-id')
+                    ) !== -1) {
                 ajax.call([
-                        { 
-                            methodname: 'mod_labelwithgroup_get_labelswithgroup_by_user', 
-                            args: { 
-                                groupid: parseInt(document.querySelector('#mod_labelwithgroup_element_{$identifier}').getAttribute('data-group-id')),
-                                courseid: parseInt(document.querySelector('#mod_labelwithgroup_element_{$identifier}').getAttribute('data-course-id'))  
-                            } 
+                        {
+                            methodname: 'mod_labelwithgroup_get_labelswithgroup_by_user',
+                            args: {
+                                groupid: parseInt(
+                                    document.querySelector(
+                                        '#mod_labelwithgroup_element_{$identifier}'
+                                        ).getAttribute('data-group-id')),
+                                courseid: parseInt(
+                                    document.querySelector(
+                                        '#mod_labelwithgroup_element_{$identifier}'
+                                        ).getAttribute('data-course-id'))
+                            }
                         }
                     ])[0].then(function (res) {
                         if (!res.allowed) {
@@ -63,10 +70,8 @@ EOT;
                                 .closest('.labelwithgroup').classList.add('d-none');
                         }
                     });
-                }  
-            })   
-            
-           
+                }
+            })
             </script>
 EOF;
 

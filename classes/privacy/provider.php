@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Privacy Subsystem implementation for mod_labelwithgroup.
  *

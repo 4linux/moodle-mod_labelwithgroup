@@ -1,5 +1,4 @@
 <?php
-
 /**
  * PHPUnit label generator tests
  *
@@ -26,15 +25,15 @@ class mod_labelwithgroup_generator_testcase extends advanced_testcase {
         $this->assertInstanceOf('mod_labelwithgroup_generator', $generator);
         $this->assertEquals('labelwithgroup', $generator->get_modulename());
 
-        $generator->create_instance(array('course'=>$course->id));
-        $generator->create_instance(array('course'=>$course->id));
-        $labelwithgroup = $generator->create_instance(array('course'=>$course->id));
+        $generator->create_instance(array('course' => $course->id));
+        $generator->create_instance(array('course' => $course->id));
+        $labelwithgroup = $generator->create_instance(array('course' => $course->id));
         $this->assertEquals(3, $DB->count_records('labelwithgroup'));
 
         $contents = $DB->get_records('labelwithgroup_content', [ 'labelwithgroup_id' => $labelwithgroup->id ]);
         $this->assertEquals(3, count($contents));
 
-        foreach($contents as $content) {
+        foreach ($contents as $content) {
             $this->assertEquals($labelwithgroup->id, $content->labelwithgroup_id);
             $this->assertContains("Label with group test content", $content->content);
         }

@@ -47,4 +47,3 @@ Feature: create collapse with slide template
     And I should not see "Label with group with collapse slide template slide 2"
     When I click on ".mod-labelwithgroup-carousel-control-next" "css_element"
     And I should see "Label with group with collapse slide template slide 2"
-   

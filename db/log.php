@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Definition of log events
  *
@@ -12,6 +11,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $logs = array(
-    array('module'=>'labelwithgroup', 'action'=>'add', 'mtable'=>'labelwithgroup', 'field'=>'name'),
-    array('module'=>'labelwithgroup', 'action'=>'update', 'mtable'=>'labelwithgroup', 'field'=>'name'),
+    array('module' => 'labelwithgroup', 'action' => 'add', 'mtable' => 'labelwithgroup', 'field' => 'name'),
+    array('module' => 'labelwithgroup', 'action' => 'update', 'mtable' => 'labelwithgroup', 'field' => 'name'),
 );

@@ -1,17 +1,8 @@
 <?php
-
 /**
  * @package    mod_labelwithgroup
  * @copyright  2021 4Linux  {@link https://4linux.com.br/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
-/**
- * Define all the restore steps that will be used by the restore_url_activity_task
- */
-
-/**
- * Structure step to restore one labelwithgroup activity
  */
 class restore_labelwithgroup_activity_structure_step extends restore_activity_structure_step {
 

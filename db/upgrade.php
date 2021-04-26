@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Label module upgrade
  *

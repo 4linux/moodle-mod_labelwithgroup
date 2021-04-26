@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Label external with group functions and service definitions.
  *

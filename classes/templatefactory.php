@@ -1,11 +1,12 @@
 <?php
-
 namespace mod_labelwithgroup\classes;
 
-require_once ($CFG->dirroot . '/mod/labelwithgroup/classes/collapse.php');
-require_once ($CFG->dirroot . '/mod/labelwithgroup/classes/slide.php');
-require_once ($CFG->dirroot . '/mod/labelwithgroup/classes/collapseslide.php');
-require_once ($CFG->dirroot . '/mod/labelwithgroup/classes/none.php');
+defined('MOODLE_INTERNAL') || die;
+
+require_once($CFG->dirroot . '/mod/labelwithgroup/classes/collapse.php');
+require_once($CFG->dirroot . '/mod/labelwithgroup/classes/slide.php');
+require_once($CFG->dirroot . '/mod/labelwithgroup/classes/collapseslide.php');
+require_once($CFG->dirroot . '/mod/labelwithgroup/classes/none.php');
 
 use mod_labelwithgroup\interfaces\labeltemplateinterface;
 use mod_labelwithgroup\classes\collapse;
@@ -24,10 +25,10 @@ use mod_labelwithgroup\classes\collapseslide;
 class templatefactory
 {
 
-    static $TEMPLATE_TYPE_NONE = 'none';
-    static $TEMPLATE_TYPE_COLLAPSE = 'collapse';
-    static $TEMPLATE_TYPE_SLIDE = 'slide';
-    static $TEMPLATE_TYPE_COLLAPSE_SLIDE = 'collapse-slide';
+    public static $templatetypenone = 'none';
+    public static $templatetypecollapse = 'collapse';
+    public static $templatetypeslide = 'slide';
+    public static $templatetypecollapseslide = 'collapse-slide';
 
     /**
      * Retrieve a template object
@@ -39,13 +40,13 @@ class templatefactory
      */
     static function get_template_by_type($type) {
         switch ($type) {
-            case self::$TEMPLATE_TYPE_NONE:
+            case self::$templatetypenone:
                 return new none();
-            case self::$TEMPLATE_TYPE_COLLAPSE:
+            case self::$templatetypecollapse:
                 return new collapse();
-            case self::$TEMPLATE_TYPE_COLLAPSE_SLIDE:
+            case self::$templatetypecollapseslide:
                 return new collapseslide();
-            case self::$TEMPLATE_TYPE_SLIDE:
+            case self::$templatetypeslide:
                 return new slide();
         }
     }

@@ -46,4 +46,3 @@ Feature: Check label group works
     And I log in as "student1"
     And I am on "Test" course homepage
     And I should not see "Label with group without a template should not be shown"
-
