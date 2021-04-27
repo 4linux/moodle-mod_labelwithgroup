@@ -136,7 +136,7 @@ class mod_labelwithgroup_mod_form extends moodleform_mod {
         $content = [];
         for ($i = 1; $i <= 25; $i++) {
             $attrname = 'content' . $i;
-            $attrval = $data->{$attrname['text']};
+            $attrval = $data->{$attrname}['text'];
 
             if (!empty($attrval) ) {
                 $content[] = $attrval;

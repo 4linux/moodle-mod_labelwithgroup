@@ -27,6 +27,7 @@ $string['indicator:socialbreadthdef_help'] = 'The participant has reached this p
 $string['indicator:socialbreadthdef_link'] = 'Learning_analytics_indicators#Social_breadth';
 $string['labelwithgroup:addinstance'] = 'Add a new label with group';
 $string['labelwithgroup:view'] = 'View label with group';
+$string['labelwithgroup:seeallactivities '] = 'See all activities';
 $string['labelwithgrouptext'] = 'Label with group text';
 $string['modulename'] = 'Label with group';
 $string['modulename_help'] = 'The label with group module enables text and multimedia to be inserted into the course page in between links to other resources and activities. Labels are very versatile and can help to improve the appearance of a course if used thoughtfully.

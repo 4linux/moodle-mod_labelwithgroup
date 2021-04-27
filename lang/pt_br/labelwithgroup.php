@@ -27,6 +27,7 @@ $string['indicator:socialbreadthdef_help'] = 'O participante atingiu esse percen
 $string['indicator:socialbreadthdef_link'] = 'Learning_analytics_indicators#Social_breadth';
 $string['labelwithgroup:addinstance'] = 'Adicionar um novo rótulo com grupo';
 $string['labelwithgroup:view'] = 'Ver rótulo com grupo';
+$string['labelwithgroup:seeallactivities '] = 'Ver todas as atividades';
 $string['labelwithgrouptext'] = 'Rótulo com texto do grupo';
 $string['modulename'] = 'Rótulo com grupo';
 $string['modulename_help'] = 'O rótulo com módulo de grupo permite que texto e multimídia sejam inseridos na página do curso entre links para outros recursos e atividades. As rótulos são muito versáteis e podem ajudar a melhorar a aparência de um curso, se usadas com cuidado.
