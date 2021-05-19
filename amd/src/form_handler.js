@@ -67,13 +67,13 @@
 
                 function showEditors(max = 25) {
                     for (let i = 1; i <= max; i++) {
-                        showItem('fitem_id_content' + i);
+                        showItem('fitem_id_content' + i + '_editor');
                     }
                 }
 
                 function hideEditors(min = 1) {
                     for (let i = min; i <= maxEditors; i++) {
-                        hideItem('fitem_id_content' + i);
+                        hideItem('fitem_id_content' + i + '_editor');
                     }
                 }
 
@@ -100,7 +100,7 @@
                     const string = isSlide ? 'slide' : 'content';
 
                      for (let i = minEditors; i <= maxEditors; i++ ) {
-                         const element = $('#fitem_id_content' + i + ' label').first();
+                         const element = $('#fitem_id_content' + i + '_editor label').first();
                          let label = strings[language][string].replace('{n}', i);
                          element.html(label);
                      }
@@ -113,7 +113,7 @@
                         const textAreaValue = $('#id_content' + i).val();
 
                         if (textAreaValue) {
-                            showItem('fitem_id_content' + i);
+                            showItem('fitem_id_content' + i + '_editor');
                         }
 
                     }
