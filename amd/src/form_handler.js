@@ -1,6 +1,12 @@
     define(['jquery'], function($) {
         return {
             init: function(language = 'en') {
+
+                const SLIDE_TEMPLATE = 'slide';
+                const NONE_TEMPLATE = 'none';
+                const COLLAPSE_TEMPLATE = 'collapse';
+                const COLLAPSE_SLIDE_TEMPLATE = 'collapse-slide';
+
                 let slideCount = 0;
                 let maxEditors = 25;
                 let minEditors = 1;
@@ -67,30 +73,30 @@
 
                 function showEditors(max = 25) {
                     for (let i = 1; i <= max; i++) {
-                        showItem('fitem_id_content' + i);
+                        showItem('fitem_id_content' + i + '_editor');
                     }
                 }
 
                 function hideEditors(min = 1) {
                     for (let i = min; i <= maxEditors; i++) {
-                        hideItem('fitem_id_content' + i);
+                        hideItem('fitem_id_content' + i + '_editor');
                     }
                 }
 
-                function updateView() {
+                function resetView() {
                     const value = $("#id_templatetype").val();
 
                     switch (value) {
-                        case "none":
+                        case NONE_TEMPLATE:
                             showNone();
                             break;
-                        case "collapse":
+                        case COLLAPSE_TEMPLATE:
                             showCollapse();
                             break;
-                        case "slide":
+                        case SLIDE_TEMPLATE:
                             showSlide();
                             break;
-                        case 'collapse-slide':
+                        case COLLAPSE_SLIDE_TEMPLATE:
                             showCollapseSlide();
                             break;
                     }
@@ -100,28 +106,46 @@
                     const string = isSlide ? 'slide' : 'content';
 
                      for (let i = minEditors; i <= maxEditors; i++ ) {
-                         const element = $('#fitem_id_content' + i + ' label').first();
+                         const element = $('#fitem_id_content' + i + '_editor label').first();
                          let label = strings[language][string].replace('{n}', i);
                          element.html(label);
                      }
 
                 }
 
-                function initView() {
-                    updateView();
+                function updateView() {
+                    const templateType = $("#id_templatetype").val();
+
+                    const isSlide = [SLIDE_TEMPLATE, COLLAPSE_SLIDE_TEMPLATE].includes(templateType);
+
+                    const showTitle = [COLLAPSE_TEMPLATE, COLLAPSE_SLIDE_TEMPLATE].includes(templateType);
+
+                    showTitle ? showItem('fitem_id_title') : hideItem('fitem_id_title');
+
+                    changeLabel(isSlide);
+
                     for (let i = 1; i <= 25; i++) {
-                        const textAreaValue = $('#id_content' + i).val();
+                        const textAreaValue = $('#id_content' + i + '_editor').val();
 
                         if (textAreaValue) {
-                            showItem('fitem_id_content' + i);
+                            showItem('fitem_id_content' + i + '_editor');
+                        } else {
+                            hideItem('fitem_id_content' + i + '_editor');
                         }
-
                     }
+                }
 
+                function initView() {
+
+                    const items = $('.fitem textarea');
+
+                    isInitialView = !items.val();
+
+                    isInitialView ? resetView() : updateView();
                 }
 
                 $("#id_templatetype").on('change', function () {
-                   updateView();
+                    resetView();
                 });
 
                 $("#id_addslide").on('click', function() {
