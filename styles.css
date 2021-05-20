@@ -84,6 +84,7 @@
     max-width: 2rem;
     outline: none;
     box-shadow: none;
+    filter: none;
 }
 
 .carousel-control-next.mod-labelwithgroup-carousel-control-next:focus,
