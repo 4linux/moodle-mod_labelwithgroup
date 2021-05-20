@@ -6,6 +6,9 @@
     height: inherit;
 }
 
+.section .activity.labelwithgroup .mediaplugin > div {
+    max-width: 90%!important;
+}
 /* collapse */
 .card.mod-labelwithgroup-card {
     border: none;
