@@ -1,4 +1,4 @@
-define(['jquery'], function($) {
+define('labelwithgroup_form_handler', ['jquery'], function($) {
     return {
         init: function(language = 'en') {
 
