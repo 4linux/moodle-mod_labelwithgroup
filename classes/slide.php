@@ -158,34 +158,42 @@ EOF;
     public function add_script($content, $identifier) {
 
         return $content . <<<EOF
-            <script type="module">
-            require(['jquery', 'core/ajax'], function($, ajax) {
-              if (parseInt(
-                  document.querySelector(
-                      '#mod_labelwithgroup_element_{$identifier}'
-                      ).getAttribute('data-group-id')) !== -1) {
-                ajax.call([
-                        {
+            <script type="module" >
+                
+                if (parseInt(
+                    document.querySelector(
+                        "#mod_labelwithgroup_element_${identifier}"
+                    ).getAttribute('data-group-id')
+                ) !== -1) {
+                
+                    fetch("/lib/ajax/service.php?sesskey={$_SESSION['USER']->sesskey}&info=mod_labelwithgroup_get_labelswithgroup_by_user", {
+                        method: "POST",
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
                             methodname: 'mod_labelwithgroup_get_labelswithgroup_by_user',
                             args: {
                                 groupid: parseInt(
                                     document.querySelector(
-                                        '#mod_labelwithgroup_element_{$identifier}'
-                                        ).getAttribute('data-group-id')),
+                                        "#mod_labelwithgroup_element_${identifier}"
+                                    ).getAttribute('data-group-id')),
                                 courseid: parseInt(
                                     document.querySelector(
-                                        '#mod_labelwithgroup_element_{$identifier}'
-                                        ).getAttribute('data-course-id'))
+                                        "#mod_labelwithgroup_element_${identifier}"
+                                    ).getAttribute('data-course-id'))
+                            },
+                            index: 0
+                        })
+                    }).then(res => {
+                        res.json().then(response => {
+                            if (!response.allowed) {
+                                document.querySelector("#mod_labelwithgroup_element_${identifier}")
+                                    .closest('.labelwithgroup').classList.add('d-none');
                             }
-                        }
-                    ])[0].then(function (res) {
-                        if (!res.allowed) {
-                            document.querySelector('#mod_labelwithgroup_element_{$identifier}')
-                                .closest('.labelwithgroup').classList.add('d-none');
-                        }
+                        })
+                
                     });
                 }
-            })
+
             </script>
 EOF;
     }
