@@ -4,7 +4,7 @@
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
   <TABLES>
-    <TABLE NAME="labelwithgroup" COMMENT="Defines labels">
+    <TABLE NAME="labelwithgroup" COMMENT="Define the label table content and the content that will be displayed on the course page">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
@@ -23,7 +23,9 @@
         <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="labelwithgroup_content" COMMENT="Defines labels">
+    <TABLE NAME="labelwithgroup_content" COMMENT="On a relationship labelwithgroup (1):(N) labelwithgroup_content,
+    this table is responsible for holding all the content that will be transformed into various templates,
+    according to the template type">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="content" TYPE="text" NOTNULL="true" SEQUENCE="false"/>

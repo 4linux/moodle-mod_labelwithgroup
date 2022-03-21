@@ -23,7 +23,6 @@
  */
 namespace mod_labelwithgroup;
 
-use mod_labelwithgroup\interfaces\labeltemplateinterface;
 
 /**
  * Collapse with slide template

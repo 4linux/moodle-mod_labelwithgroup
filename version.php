@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2022012701;
+$plugin->version   = 2022030700;
 $plugin->requires  = 2020060900;
 $plugin->component = 'mod_labelwithgroup';
 $plugin->cron      = 0;

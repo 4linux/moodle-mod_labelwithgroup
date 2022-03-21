@@ -15,14 +15,15 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Template commom interface
+ * Template common interface
  *
  * @package    mod_labelwithgroup
  * @copyright  2021 4Linux  {@link https://4linux.com.br/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_labelwithgroup\interfaces;
+namespace mod_labelwithgroup;
+
 
 /**
  * Template commom interface

@@ -25,7 +25,6 @@ namespace mod_labelwithgroup;
 
 defined('MOODLE_INTERNAL') || die;
 
-use mod_labelwithgroup\interfaces\labeltemplateinterface;
 
 /**
  * Template Factory
